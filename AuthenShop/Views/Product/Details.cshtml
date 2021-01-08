@@ -1,0 +1,68 @@
+﻿@model AuthenShop.Entities.Product
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="row">
+            <aside class="col-sm-5">
+                <article>
+                    <div class="text-center my-5">
+                        <a href="#"><img src="~/img/@Model.Image" style="width:85%"></a>
+                    </div>
+                </article>
+            </aside>
+            <aside class="col-sm-7">
+                <article class="card-body p-5">
+                    <h3 class="title mb-3">@Model.Title</h3>
+                    <p class="price-detail-wrap">
+                        <span class="price h3 text-warning">
+                            <span class="currency">@Model.Price.ToString("n0")</span><span class="num"> VNĐ</span>
+                        </span>
+                    </p>
+                    <dl class="param param-feature">
+                        <dd>
+                            @if (Model.Status)
+                            {
+                <small class="btn btn-sm btn-outline-success">Còn hàng</small> }
+                            else
+                            {
+                <small class="btn btn-sm btn-outline-danger">Tạm hết</small>}
+                        </dd>
+                    </dl>
+                    <dl class="item-property">
+                        <dt>Description</dt>
+                        <dd>
+                            <p>
+                                @Model.Description
+                            </p>
+                        </dd>
+                    </dl>
+                    <dl class="param param-feature">
+                        <dt>Delivery</dt>
+                        <dd>Russia, USA, and Europe</dd>
+                    </dl>
+                    <form asp-action="Create" asp-controller="CartDetails" class="add-to-cart" style="display: inline">
+                        <input type="hidden" name="Email" value="@User.Identity.Name" />
+                        <input type="hidden" name="ProductId" value="@Model.Id" />
+                        <input type="hidden" name="Quantity" value="1" />
+                        <input type="hidden" name="Price" value="@Model.Price" />
+                        <button type="submit" class="btn btn btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i>Add to cart</button>
+                    </form>
+                </article>
+            </aside>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
+        {
+            <a class="btn btn btn-outline-danger text-uppercase" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        }
+        <a class="btn btn btn-outline-dark text-uppercase" asp-action="Index">Back to List</a>
+    </div>
+</div>

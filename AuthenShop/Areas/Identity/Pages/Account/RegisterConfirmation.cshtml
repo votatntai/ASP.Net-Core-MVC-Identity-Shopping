@@ -1,0 +1,31 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<div class="container">
+    <div class="row">
+        <section class="col-md-6 probootstrap-section mx-auto">
+            <div class="probootstrap-animate overlap">
+                <div class="probootstrap-form probootstrap-form-box">
+                    <h2 class="text-muted mb-3">@ViewData["Title"]</h2>
+                    @{
+                        if (@Model.DisplayConfirmAccountLink)
+                        {
+                            <p>
+                                This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+                                Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+                            </p>
+                        }
+                        else
+                        {
+                            <p>A verification code has been sent to your email</p>
+                            <p>Please check your email to confirm your account.</p>
+                        }
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

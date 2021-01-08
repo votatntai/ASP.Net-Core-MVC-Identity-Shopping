@@ -1,0 +1,110 @@
+﻿/* Your custom css code goes here */
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+a:focus, a:hover {
+    text-decoration: none !important;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+table tbody tr td {
+    border-top: none !important;
+    vertical-align: baseline !important;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+.probootstrap-sub-nav {
+    float: left;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+    .probootstrap-sub-nav li {
+        margin: 0;
+        list-style: none;
+        display: block;
+        font-size: 18px;
+        margin-bottom: 10px;
+        padding: 5px 0;
+    }
+
+        .probootstrap-sub-nav li a {
+            color: white;
+            font-weight: 400;
+            font-size: 16px;
+            padding: 10px 0;
+        }
+
+        .probootstrap-sub-nav li form button {
+            background: none;
+            border: none;
+            padding: 0;
+            color: white;
+            font-weight: 400;
+            font-size: 16px;
+            transition: .3s all;
+        }
+
+.probootstrap-right-nav li form button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    transition: .3s all;
+}
+
+    .probootstrap-right-nav li form button:hover {
+        -webkit-transition: .3s all;
+        transition: .3s all;
+        color: #22eaaa;
+    }
+
+.probootstrap-right-nav li button {
+    padding: 0 10px;
+    color: #fff;
+    outline: none;
+}
+
+.probootstrap-slider form input.form-control {
+    background: none;
+}
+
+.probootstrap-card {
+    border: 1px rgba(0,0,0,.125) solid;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.probootstrap-form {
+    margin-bottom: 0;
+}
+
+footer ul li a:hover {
+    text-decoration: none;
+}
+
+footer i {
+    font-size: x-large;
+}
+
+/*Product Details*/
+
+aside article img {
+    border-radius: 5px;
+}

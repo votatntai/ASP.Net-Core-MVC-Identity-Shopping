@@ -1,0 +1,87 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="row">
+
+        <section class="col-md-6 probootstrap-section mx-auto">
+            <div class="container">
+                <div class="probootstrap-animate overlap">
+                    <div class="probootstrap-form probootstrap-form-box">
+
+                        <h2 class="card-title font-weight-bold"><span class="text-info text-stroke-info">J</span><span class="text-muted">Shop</span></h2>
+                        <form asp-route-returnUrl="@Model.ReturnUrl" id="register" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger mt-3"></div>
+                            <div class="form-group text-left mt-3">
+                                <label asp-for="Input.Email"></label>
+                                <input asp-for="Input.Email" class="form-control" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group text-left">
+                                <label asp-for="Input.FirstName"></label>
+                                <input asp-for="Input.FirstName" class="form-control" />
+                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group text-left">
+                                <label asp-for="Input.LastName"></label>
+                                <input asp-for="Input.LastName" class="form-control" />
+                                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group text-left">
+                                <label asp-for="Input.Password"></label>
+                                <input asp-for="Input.Password" class="form-control" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group text-left">
+                                <label asp-for="Input.ConfirmPassword"></label>
+                                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mx-auto">
+                                <button type="submit" class="btn btn-outline-primary btn-block mt-4">Register</button>
+                            </div>
+                        </form>
+                        @{
+                            if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                            {
+                                <div>
+                                    <p>
+                                        There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                        for details on setting up this ASP.NET application to support logging in via external services.
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                    <div>
+                                        <p>
+                                            @foreach (var provider in Model.ExternalLogins)
+                                            {
+                                                <div class="form-group mx-auto">
+                                                    <button type="submit" class="btn btn-block" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                                </div>
+                                            }
+                                        </p>
+                                    </div>
+                                </form>
+                            }
+                        }
+                        <div class="form-group">
+                            <p>
+                                <a id="login" asp-page="./Login">Already have an account?</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

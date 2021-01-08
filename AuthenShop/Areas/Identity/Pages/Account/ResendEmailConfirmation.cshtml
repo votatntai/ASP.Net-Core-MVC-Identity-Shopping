@@ -1,0 +1,29 @@
+﻿@page
+@model ResendEmailConfirmationModel
+@{
+    ViewData["Title"] = "Resend email confirmation";
+}
+<div class="container">
+    <div class="row">
+        <section class="col-md-6 probootstrap-section mx-auto">
+            <div class="probootstrap-animate overlap">
+                <div class="probootstrap-form probootstrap-form-box">
+                    <form id="resend-email" method="post">
+                        <h2 class="text-muted">@ViewData["Title"]</h2>
+                        <p>Enter the email address you registered with us to receive the verification code</p>
+                        <div class="form-group">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary">Resend</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

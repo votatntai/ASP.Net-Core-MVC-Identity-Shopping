@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AuthenShop</title>
+    <link rel="stylesheet" href="~/css/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/virb/css/styles-merged.css">
+    <link rel="stylesheet" href="/virb/css/style.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+
+    <div class="probootstrap-loader"></div>
+
+    <section class="probootstrap-slider flexslider">
+        <ul class="slides">
+            <li style="background-image: url('https://www.upsieutoc.com/images/2021/01/05/slider_1.jpg');" class="overlay2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="slides-text probootstrap-animate" data-animate-effect="fadeIn">
+                                <h2>Account Management</h2>
+                                <p>
+                                    An online shopping app created by <a href="https://votantai.ml/" target="_blank">Vo Tan Tai</a>
+                                    using ASP.Net Core
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <header role="banner" class="probootstrap-header">
+        <div class="container">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="probootstrap-logo">JLS</a>
+
+            <a href="#" class="probootstrap-burger-menu visible-xs"><i>Menu</i></a>
+            <div class="mobile-menu-overlay"></div>
+
+            <nav role="navigation" class="probootstrap-nav hidden-xs">
+                <ul class="probootstrap-main-nav">
+                    <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Gruppy" asp-action="Index">Gruppy</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="probootstrap-right-nav hidden-xs">
+                    <partial name="_LoginPartial" />
+                    <li><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram2"></i></a></li>
+                </ul>
+                <div class="extra-text visible-xs">
+                    <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+                    <h5>Account</h5>
+                    <ul class="probootstrap-sub-nav">
+                        <partial name="_LoginPartial" />
+                    </ul>
+                    <h5>Connect</h5>
+                    <ul class="social-buttons">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                        <li><a href="#"><i class="icon-instagram2"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="content">
+        @RenderBody()
+    </main>
+
+    <footer class="probootstrap-footer probootstrap-bg">
+        <div class="container">
+            <div class="row font-weight-bold text-uppercase text-muted mx-5">
+                <ul class="social-buttons row mx-auto my-3">
+                    <li><a href="#"><i class="icon-twitter d-inline mx-3"></i></a></li>
+                    <li><a href="#"><i class="icon-facebook2 d-inline mx-3"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram2 d-inline mx-3"></i></a></li>
+                </ul>
+            </div>
+            <p class="text-center">© Copyright 2010 Vo Tan Tai - All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+    </div>
+
+    <partial name="_CartPartial.cshtml" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/sweetalert2.all.min.js"></script>
+    <script src="~/virb/js/scripts.min.js"></script>
+    <script src="~/virb/js/main.min.js"></script>
+    <script src="~/virb/js/custom.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

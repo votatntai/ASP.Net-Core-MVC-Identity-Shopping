@@ -1,0 +1,61 @@
+﻿@model AuthenShop.Services.PaginatedList<AuthenShop.Entities.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mb-5">
+    @if (Model.Count != 0)
+    {
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 probootstrap-animate mt-5">
+                    <div class="probootstrap-card h-100 with-hover">
+                        <div class="probootstrap-card-media">
+                            <a asp-action="Details" asp-route-id="@item.Id"><img src="~/img/@item.Image" class="img-responsive img-border"></a>
+                        </div>
+                        <div class="probootstrap-card-text">
+                            <h4 class="card-title"><a asp-action="Details" asp-route-id="@item.Id">@item.Title</a></h4>
+                            <h5 class="price">@item.Price.ToString("n0")</h5>
+                            <p class="card-text">@item.Description</p>
+                        </div>
+                        <div class="card-footer mt-auto">
+                            <small class="text-danger" style="font-size: 21px">★ ★ ★ ★ ☆</small>
+                            @if (item.Status)
+                            {
+                                <small class="btn btn-sm btn-outline-success float-right">Còn hàng</small>
+                            }
+                            else
+                            {
+                                <small class="btn btn-sm btn-outline-danger float-right">Tạm hết</small>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="text-center mt-5">
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-outline-info @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-outline-info @nextDisabled">
+                Next
+            </a>
+        </div>
+    }
+    else
+    {
+        <a>No record found</a>
+    }
+</div>
