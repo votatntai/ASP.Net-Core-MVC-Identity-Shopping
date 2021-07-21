@@ -1,6 +1,6 @@
 # ASP.Net-Core-MVC-Identity-Shopping #
 
-Personal project using ASP.Net Core 5.0 and Entity Framework Database First
+Personal project using ASP.Net Core 5.0 and Entity Framework Database First 
 
 ## Demo ##
 Not available
